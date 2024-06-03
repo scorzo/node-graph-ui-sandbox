@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node Graph</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: 'Roboto', sans-serif;
+      overflow: auto;
+      width: 100vw;
+      height: 100vh;
+    }
+    .wrapper {
+      width: 2000px;
+      height: 2000px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .node {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border: 2px solid #ff5722;
+      border-radius: 50%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: visible;
+    }
+    .center-node {
+      background-color: #ff5722;
+      color: #fff;
+      width: 180px;
+      height: 180px;
+      font-size: 34px;
+      font-weight: bold;
+    }
+    .third-tier-node {
+      background-color: #ffccbc;
+      border: 2px solid #e64a19;
+      width: 60px; /* 60% smaller than 150px */
+      height: 60px; /* 60% smaller than 150px */
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center the text vertically */
+      text-align: center; /* Center the text horizontally */
+    }
+    .content {
+      position: absolute;
+      display: flex;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      align-items: center;
+    }
+    .node-title {
+      width: 75px; /* Title width */
+      text-align: right;
+      padding-right: 10px;
+    }
+    .third-tier-title {
+      font-weight: bold;
+    }
+    .node-snippet {
+      font-size: 10px;
+      margin-top: 5px;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+      text-align: left;
+      width: 125px; /* List width */
+    }
+    ul li {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper" id="node-container">
+  <div class="node center-node" id="self-node">Self</div>
+
+  <!-- Morning Routine -->
+  <div class="node" id="morning-routine">
+    <div class="content">
+      <div class="node-title">Morning Routine</div>
+      <ul>
+        <li>Setting alarms and reminders</li>
+        <li>Providing weather updates and daily news briefings</li>
+        <li>Planning the day’s schedule and appointments</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Work Tasks -->
+  <div class="node" id="work-tasks">
+    <div class="content">
+      <div class="node-title">Work Tasks</div>
+      <ul>
+        <li>Managing emails and prioritizing tasks</li>
+        <li>Scheduling meetings and managing calendar events</li>
+        <li>Providing reminders for deadlines and important tasks</li>
+        <li>Assisting with research and data collection</li>
+        <li>Drafting documents, reports, or presentations</li>
+        <li>Automating repetitive tasks or workflows</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Personal Development -->
+  <div class="node" id="personal-development">
+    <div class="content">
+      <div class="node-title">Personal Development</div>
+      <ul>
+        <li>Suggesting learning resources or courses</li>
+        <li>Tracking progress on personal goals or projects</li>
+        <li>Recommending books, articles, or podcasts</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Health and Fitness -->
+  <div class="node" id="health-fitness">
+    <div class="content">
+      <div class="node-title">Health and Fitness</div>
+      <ul>
+        <li>Setting workout reminders and tracking fitness goals</li>
+        <li>Providing meal suggestions and recipes</li>
+        <li>Tracking daily water intake and nutritional information</li>
+        <li>Reminding to take medications or supplements</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Social and Communication -->
+  <div class="node" id="social-communication">
+    <div class="content">
+      <div class="node-title">Social and Communication</div>
+      <ul>
+        <li>Reminding of birthdays and anniversaries</li>
+        <li>Suggesting responses for messages or emails</li>
+        <li>Organizing social events and sending invitations</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Travel and Commuting -->
+  <div class="node" id="travel-commuting">
+    <div class="content">
+      <div class="node-title">Travel and Commuting</div>
+      <ul>
+        <li>Providing real-time traffic updates and alternate routes</li>
+        <li>Suggesting travel itineraries and booking reservations</li>
+        <li>Reminding to pack essential items for trips</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Home Management -->
+  <div class="node" id="home-management">
+    <div class="content">
+      <div class="node-title">Home Management</div>
+      <ul>
+        <li>Managing smart home devices (lights, thermostat, etc.)</li>
+        <li>Creating shopping lists and suggesting grocery items</li>
+        <li>Reminding of household chores and maintenance tasks</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Entertainment and Leisure -->
+  <div class="node" id="entertainment-leisure">
+    <div class="content">
+      <div class="node-title">Entertainment and Leisure</div>
+      <ul>
+        <li>Recommending movies, TV shows, or music based on preferences</li>
+        <li>Planning weekend activities or outings</li>
+        <li>Providing updates on favorite sports teams or events</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Finance Management -->
+  <div class="node" id="finance-management">
+    <div class="content">
+      <div class="node-title">Finance Management</div>
+      <ul>
+        <li>Tracking expenses and budgeting</li>
+        <li>Providing reminders for bill payments</li>
+        <li>Suggesting investment opportunities and financial tips</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Evening Routine -->
+  <div class="node" id="evening-routine">
+    <div class="content">
+      <div class="node-title">Evening Routine</div>
+      <ul>
+        <li>Reminding to wind down and prepare for bed</li>
+        <li>Suggesting relaxation techniques or bedtime stories</li>
+        <li>Setting alarms for the next day and reviewing the schedule</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trip to New York (3rd Tier Node) -->
+  <div class="node third-tier-node" id="trip-to-ny">
+    <div class="third-tier-title">Trip to New York</div>
+    <div class="node-snippet">July 25th Billy Joel Concert</div>
+  </div>
+</div>
+
+<script>
+  window.onload = function() {
+    const container = document.getElementById('node-container');
+    const nodes = container.querySelectorAll('.node:not(.center-node):not(.third-tier-node)');
+    const centerNode = document.getElementById('self-node');
+    const centerNodeWidth = centerNode.offsetWidth;
+    const centerNodeHeight = centerNode.offsetHeight;
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+    const centerX = containerWidth / 2 - centerNodeWidth / 2;
+    const centerY = containerHeight / 2 - centerNodeHeight / 2;
+    const radius = 375; // Distance from the center node
+
+    console.log("Center node dimensions:", centerNodeWidth, centerNodeHeight);
+    console.log("Container dimensions:", containerWidth, containerHeight);
+    console.log("Center coordinates:", centerX, centerY);
+
+    centerNode.style.left = `${centerX}px`;
+    centerNode.style.top = `${centerY}px`;
+
+    nodes.forEach((node, index) => {
+      const angle = (index / nodes.length) * 2 * Math.PI;
+      const x = centerX + centerNodeWidth / 2 + radius * Math.cos(angle);
+      const y = centerY + centerNodeHeight / 2 + radius * Math.sin(angle);
+      node.style.left = `${x - node.offsetWidth / 2}px`;
+      node.style.top = `${y - node.offsetHeight / 2}px`;
+
+      console.log(`Node ${index} - angle: ${angle}, x: ${x}, y: ${y}`);
+    });
+
+    // Scroll to center the "Self" node
+    window.scrollTo(centerX + centerNodeWidth / 2 - window.innerWidth / 2, centerY + centerNodeHeight / 2 - window.innerHeight / 2);
+    console.log("Scrolled to:", centerX + centerNodeWidth / 2 - window.innerWidth / 2, centerY + centerNodeHeight / 2 - window.innerHeight / 2);
+
+    // Function to place third-tier nodes
+    function placeThirdTierNodes(parentNode, thirdTierNodes, radius, startAngle = Math.PI) {
+      const parentX = parseFloat(parentNode.style.left) + parentNode.offsetWidth / 2;
+      const parentY = parseFloat(parentNode.style.top) + parentNode.offsetHeight / 2;
+
+      thirdTierNodes.forEach((node, index) => {
+        const angle = startAngle + (index / thirdTierNodes.length) * 2 * Math.PI;
+        const x = parentX + radius * Math.cos(angle);
+        const y = parentY + radius * Math.sin(angle);
+        node.style.left = `${x - node.offsetWidth / 2}px`;
+        node.style.top = `${y - node.offsetHeight / 2}px`;
+
+        console.log(`Third-tier Node ${index} - angle: ${angle}, x: ${x}, y: ${y}`);
+      });
+    }
+
+    // Place the "Trip to New York" node around "Travel and Commuting"
+    const travelNode = document.getElementById('travel-commuting');
+    const thirdTierNodes = [document.getElementById('trip-to-ny')];
+    placeThirdTierNodes(travelNode, thirdTierNodes, 200, Math.PI); // Start at 180 degrees (left of the parent node)
+  };
+</script>
+</body>
+</html>

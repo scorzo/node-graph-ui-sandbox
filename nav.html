@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node Graph</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: 'Roboto', sans-serif;
+    }
+    .node {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border: 2px solid #ff5722;
+      border-radius: 50%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .center-node {
+      background-color: #ff5722;
+      color: #fff;
+      width: 180px;
+      height: 180px;
+    }
+    .node-container {
+      position: relative;
+      width: 1000px;
+      height: 1000px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    ul li {
+      font-size: 12px;
+    }
+    .line {
+      position: absolute;
+      border: 1px solid #ff5722;
+    }
+  </style>
+</head>
+<body>
+<div class="node-container">
+  <div class="node center-node" style="top: 410px; left: 410px;">Self</div>
+
+  <!-- Morning Routine -->
+  <div class="node" style="top: 100px; left: 300px;">
+    Morning Routine
+    <ul>
+      <li>Setting alarms and reminders</li>
+      <li>Providing weather updates and daily news briefings</li>
+      <li>Planning the day’s schedule and appointments</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 375px; left: 375px; height: 150px; width: 1px;"></div>
+  <div class="line" style="top: 375px; left: 375px; height: 1px; width: 150px;"></div>
+
+  <!-- Work Tasks -->
+  <div class="node" style="top: 50px; left: 550px;">
+    Work Tasks
+    <ul>
+      <li>Managing emails and prioritizing tasks</li>
+      <li>Scheduling meetings and managing calendar events</li>
+      <li>Providing reminders for deadlines and important tasks</li>
+      <li>Assisting with research and data collection</li>
+      <li>Drafting documents, reports, or presentations</li>
+      <li>Automating repetitive tasks or workflows</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 375px; left: 425px; height: 300px; width: 1px;"></div>
+  <div class="line" style="top: 675px; left: 425px; height: 1px; width: 150px;"></div>
+
+  <!-- Personal Development -->
+  <div class="node" style="top: 200px; left: 100px;">
+    Personal Development
+    <ul>
+      <li>Suggesting learning resources or courses</li>
+      <li>Tracking progress on personal goals or projects</li>
+      <li>Recommending books, articles, or podcasts</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 375px; left: 375px; height: 1px; width: 200px;"></div>
+  <div class="line" style="top: 375px; left: 175px; height: 100px; width: 1px;"></div>
+
+  <!-- Health and Fitness -->
+  <div class="node" style="top: 300px; left: 650px;">
+    Health and Fitness
+    <ul>
+      <li>Setting workout reminders and tracking fitness goals</li>
+      <li>Providing meal suggestions and recipes</li>
+      <li>Tracking daily water intake and nutritional information</li>
+      <li>Reminding to take medications or supplements</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 375px; left: 425px; height: 300px; width: 1px;"></div>
+  <div class="line" style="top: 675px; left: 425px; height: 1px; width: 225px;"></div>
+
+  <!-- Social and Communication -->
+  <div class="node" style="top: 450px; left: 50px;">
+    Social and Communication
+    <ul>
+      <li>Reminding of birthdays and anniversaries</li>
+      <li>Suggesting responses for messages or emails</li>
+      <li>Organizing social events and sending invitations</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 585px; left: 375px; height: 1px; width: 300px;"></div>
+  <div class="line" style="top: 585px; left: 75px; height: 125px; width: 1px;"></div>
+
+  <!-- Travel and Commuting -->
+  <div class="node" style="top: 550px; left: 700px;">
+    Travel and Commuting
+    <ul>
+      <li>Providing real-time traffic updates and alternate routes</li>
+      <li>Suggesting travel itineraries and booking reservations</li>
+      <li>Reminding to pack essential items for trips</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 585px; left: 425px; height: 1px; width: 300px;"></div>
+  <div class="line" style="top: 585px; left: 725px; height: 200px; width: 1px;"></div>
+
+  <!-- Home Management -->
+  <div class="node" style="top: 700px; left: 200px;">
+    Home Management
+    <ul>
+      <li>Managing smart home devices (lights, thermostat, etc.)</li>
+      <li>Creating shopping lists and suggesting grocery items</li>
+      <li>Reminding of household chores and maintenance tasks</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 785px; left: 375px; height: 1px; width: 200px;"></div>
+  <div class="line" style="top: 785px; left: 575px; height: 175px; width: 1px;"></div>
+
+  <!-- Entertainment and Leisure -->
+  <div class="node" style="top: 650px; left: 450px;">
+    Entertainment and Leisure
+    <ul>
+      <li>Recommending movies, TV shows, or music based on preferences</li>
+      <li>Planning weekend activities or outings</li>
+      <li>Providing updates on favorite sports teams or events</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 785px; left: 425px; height: 1px; width: 200px;"></div>
+  <div class="line" style="top: 785px; left: 625px; height: 125px; width: 1px;"></div>
+
+  <!-- Finance Management -->
+  <div class="node" style="top: 200px; left: 500px;">
+    Finance Management
+    <ul>
+      <li>Tracking expenses and budgeting</li>
+      <li>Providing reminders for bill payments</li>
+      <li>Suggesting investment opportunities and financial tips</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 375px; left: 425px; height: 300px; width: 1px;"></div>
+  <div class="line" style="top: 675px; left: 425px; height: 1px; width: 150px;"></div>
+
+  <!-- Evening Routine -->
+  <div class="node" style="top: 500px; left: 300px;">
+    Evening Routine
+    <ul>
+      <li>Reminding to wind down and prepare for bed</li>
+      <li>Suggesting relaxation techniques or bedtime stories</li>
+      <li>Setting alarms for the next day and reviewing the schedule</li>
+    </ul>
+  </div>
+  <div class="line" style="top: 585px; left: 375px; height: 1px; width: 100px;"></div>
+  <div class="line" style="top: 585px; left: 475px; height: 100px; width: 1px;"></div>
+</div>
+</body>
+</html>

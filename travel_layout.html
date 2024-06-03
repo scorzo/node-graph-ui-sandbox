@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Trip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #ff5722;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .map {
+            width: 100%;
+            height: 200px;
+            background: url('https://maps.googleapis.com/maps/api/staticmap?center=40.7128,-74.006&zoom=13&size=600x300&maptype=roadmap&key=') no-repeat center center;
+            background-size: cover;
+        }
+        .activity-button {
+            display: inline-block;
+            padding: 10px 15px;
+            color: white;
+            background-color: #ff5722;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #ff5722;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>New York Trip</h1>
+    <p>2024-07-24 to 2024-07-31</p>
+</div>
+<div class="content">
+    <div class="card">
+        <div class="map"></div>
+        <div class="card-content">
+            <h3>New York, NY</h3>
+            <p>Arrival: 2024-07-24 | Departure: 2024-07-31</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://cache.marriott.com/marriottassets/marriott/NYCAL/nycal-exterior-0011-hor-feat.jpg" alt="Aloft Manhattan Downtown Financial District">
+        <div class="card-content">
+            <h3>Aloft Manhattan Downtown Financial District</h3>
+            <p>Address: 49-53 Ann St, New York, NY 10038, United States</p>
+            <p>Check-in: 2024-07-24 | Check-out: 2024-07-31</p>
+            <p>Total Price: USD 1758.68</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://s1.ticketm.net/dam/a/bc3/48a3747f-f6e1-403f-bca8-658c20b98bc3_1544981_RECOMENDATION_16_9.jpg" alt="Billy Joel - In Concert">
+        <div class="card-content">
+            <h3>Billy Joel - In Concert</h3>
+            <p>Date: 2024-07-25 | Time: 20:00</p>
+            <p>Location: Madison Square Garden, New York, NY</p>
+            <p>Notes: Arrive early for security check.</p>
+            <a href="https://www.ticketmaster.com/billy-joel-in-concert-new-york-new-york-07-25-2024/event/3B005F45E8171A3D" class="activity-button">Buy Tickets</a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>Enjoy your trip to New York!</p>
+    <p>Number of Adults: 2 | Number of Children: 0</p>
+</div>
+</body>
+</html>

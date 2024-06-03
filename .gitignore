@@ -1,0 +1,7 @@
+.idea
+venv
+*.iml
+**/__pycache__/
+node-graph/node_modules/
+node-graph/package-lock.json
+node-graph/nodes.json
